@@ -1,27 +1,100 @@
-# CliTests
+# CLI-Tests
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.24.
+## Setup
 
-## Development server
+Creating workspace
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+```bash
+$ ng new workspace-name-here --createApplication="false"
+```
 
-## Code scaffolding
+Creating a project inside of workspace
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```bash
+$ ng g application project-name-here --routing --style="scss"
+```
 
-## Build
+```bash
+$ ng g application project-name-here --routing --style="scss"
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```bash
+$ ng g library shared
 
-## Running unit tests
+$ ng add angular-playground
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+$ npm run playground
 
-## Running end-to-end tests
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```
 
-## Further help
+  my-app
+  ├── angular.json
+  ├── angular-playground.json
+  ├── package.json
+  ├── tsconfig.json
+  ├── ...
+  ├── projects
+  │   -tsconfig.playground.json
+  │   ├── my-lib
+  │   │   ├── src
+  │   │   │   └── ...
+  │   │   └── ...
+  ├── src
+  │   ├── tsconfig.app.json
+  │   ├── main.ts
+  │   ├── main.playground.ts
+  │   └── ...
+  └─── ...
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+tsconfig.playground.json
+
+```json
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/app",
+    "types": []
+  },
+  "include": ["**/*.ts", "./shared/src/**/*.ts"],
+  "exclude": ["test.ts", "**/*.spec.ts", "**/*.e2e-spec.ts"]
+}
+```
+
+angular-playground.json
+
+```json
+{
+  "sourceRoots": ["./projects/ux-tests/src", "./projects/shared/src"],
+  "angularCli": {
+    "appName": "playground"
+  }
+}
+```
+
+angular.json
+
+```json
+{
+  ...,
+  "projects": {
+    ...,
+    "playground": {
+      ...,
+      "architect": {
+        ...,
+        "build": {
+          ...,
+          "options": {
+            ...,
+            "tsConfig": "src/tsconfig.playground.json",
+            ...
+          }
+        }
+      }
+    }
+  }
+}
+```
