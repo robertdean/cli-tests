@@ -1,5 +1,8 @@
 {
-  "sourceRoots": ["./projects/ux-tests/src"],
+  "sourceRoots": [
+    "./projects/ux-tests/src",
+    "./projects/shared/src"
+  ],
   "angularCli": {
     "appName": "playground"
   }

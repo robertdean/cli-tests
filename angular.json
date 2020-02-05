@@ -372,7 +372,7 @@
             "index": "projects/client/src/index.html",
             "main": "projects/client/src/main.playground.ts",
             "polyfills": "projects/client/src/polyfills.ts",
-            "tsConfig": "projects/client/tsconfig.app.json",
+            "tsConfig": "projects/tsconfig.playground.json",
             "assets": [
               "projects/client/src/favicon.ico",
               "projects/client/src/assets"
