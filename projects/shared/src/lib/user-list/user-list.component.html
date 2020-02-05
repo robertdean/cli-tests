@@ -1,2 +1,7 @@
-<h2>{{label}}</h2>
-<p>user-list works!</p>
+<h2 *ngIf="Users">{{ label }}</h2>
+<div *ngIf="Users">
+  <p *ngFor="let user of Users">{{ user.name }}</p>
+</div>
+<div *ngIf="!Users">
+  <p>No Users</p>
+</div>
