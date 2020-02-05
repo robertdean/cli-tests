@@ -1,0 +1,6 @@
+{
+  "sourceRoots": ["./projects/ux-tests/src"],
+  "angularCli": {
+    "appName": "playground"
+  }
+}
