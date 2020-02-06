@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from "@angular/core";
 })
 export class UserListComponent implements OnInit {
   constructor() {}
-  @Input() Users: any[] = [];
+  @Input() users: any[] = [];
   @Input() label = "User List!";
   ngOnInit() {}
 }
